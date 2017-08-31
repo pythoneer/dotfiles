@@ -36,6 +36,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'easymotion/vim-easymotion'
 Plug '907th/vim-auto-save'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'jremmen/vim-ripgrep'
 call plug#end()
 
 "**********************************
@@ -49,3 +52,8 @@ let g:airline_powerline_fonts = 1
 
 "autosave setting
 let g:auto_save = 1
+
+"https://medium.com/@crashybang/supercharge-vim-with-fzf-and-ripgrep-d4661fc853d2
+"fzf in file search /broken ... use vim-ripgrep
+"command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+
