@@ -19,6 +19,11 @@ set nu
 
 syntax on
 
+set cursorline
+
+"enable use system clipboard (install xclip & xsel)
+set clipboard+=unnamedplus
+
 "*****************
 "* P L U G I N S *
 "*****************
