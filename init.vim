@@ -5,6 +5,7 @@
 set termguicolors
 
 "new leader
+nnoremap <SPACE> <Nop>
 let mapleader = "\<Space>"
 
 "replace esc
@@ -31,6 +32,10 @@ let g:python_host_prog = '/usr/bin/python2'
 "persistend undo
 set undofile
 set undodir=~/.local/share/nvim/undo/undo
+
+"tab settings
+set tabstop=4
+set expandtab
 
 "*****************
 "* P L U G I N S *
