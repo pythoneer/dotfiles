@@ -54,7 +54,13 @@ Plug 'junegunn/fzf.vim'
 Plug 'jremmen/vim-ripgrep'
 Plug 'scrooloose/syntastic'
 Plug 'rust-lang/rust.vim'
-Plug 'valloric/youcompleteme'
+"Plug 'valloric/youcompleteme'
+Plug 'Shougo/deoplete.nvim'
+
+" TypeScript                                                                                        
+Plug 'leafgarland/typescript-vim'                                                                   
+Plug 'mhartington/nvim-typescript'   
+  
 call plug#end()
 
 "**********************************
@@ -78,3 +84,6 @@ let g:rustfmt_autosave = 1
 
 "youcomplete me settings
 let g:ycm_rust_src_path = '/home/dustin/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
+
+" Enable deoplete at startup
+let g:deoplete#enable_at_startup = 1
