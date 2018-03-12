@@ -18,9 +18,10 @@ set mouse=a
 set nu
 set relativenumber
 
-syntax on
+"syntax on
 
 set cursorline
+set colorcolumn=120
 
 "enable use system clipboard (install xclip & xsel)
 set clipboard+=unnamedplus
@@ -34,7 +35,9 @@ set undofile
 set undodir=~/.local/share/nvim/undo/undo
 
 "tab settings
-set tabstop=4
+set tabstop=8
+set softtabstop=4
+set shiftwidth=4
 set expandtab
 
 "*****************
@@ -42,25 +45,38 @@ set expandtab
 "*****************
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'vim-airline/vim-airline'
+
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
 Plug 'joshdick/onedark.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
 Plug 'easymotion/vim-easymotion'
-Plug '907th/vim-auto-save'
+
+" git commandos REMOVING
+"Plug 'tpope/vim-fugitive'
+
+
+
+" autosave complicates undo REMOVING
+"Plug '907th/vim-auto-save'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
 Plug 'jremmen/vim-ripgrep'
-Plug 'scrooloose/syntastic'
-Plug 'rust-lang/rust.vim'
+
+"Plug 'scrooloose/syntastic'
+"Plug 'rust-lang/rust.vim'
 "Plug 'valloric/youcompleteme'
-Plug 'Shougo/deoplete.nvim'
+"Plug 'Shougo/deoplete.nvim'
 
 " TypeScript                                                                                        
-Plug 'leafgarland/typescript-vim'                                                                   
-Plug 'mhartington/nvim-typescript'   
-  
+"Plug 'leafgarland/typescript-vim'                                                                   
+"Plug 'mhartington/nvim-typescript'   
+
+" autoformat
+Plug 'sbdchd/neoformat'  
 call plug#end()
 
 "**********************************
@@ -75,15 +91,37 @@ let g:airline_powerline_fonts = 1
 "autosave setting
 "let g:auto_save = 1
 
+"nerdtree toogle ctrl-n
+map <C-n> :NERDTreeToggle<CR>
+
 "https://medium.com/@crashybang/supercharge-vim-with-fzf-and-ripgrep-d4661fc853d2
 "fzf in file search /broken ... use vim-ripgrep
 "command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 
 "rust.vim settings
-let g:rustfmt_autosave = 1
+"let g:rustfmt_autosave = 1
 
 "youcomplete me settings
-let g:ycm_rust_src_path = '/home/dustin/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
+"let g:ycm_rust_src_path = '/home/dustin/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 
 " Enable deoplete at startup
-let g:deoplete#enable_at_startup = 1
+"let g:deoplete#enable_at_startup = 1
+
+" neoformat 
+" js (npm i -g js-beautify)
+
+" Enable alignment
+let g:neoformat_basic_format_align = 1
+" Enable tab to spaces conversion
+let g:neoformat_basic_format_retab = 1
+" Enable trimmming of trailing whitespace
+let g:neoformat_basic_format_trim = 1
+
+
+"**************************
+"* V I M  S E T T I N G S *
+"**************************
+"that needs to be applied after plugins eg onedark(color)
+
+highlight ColorColumn guibg=#252525
+highlight CursorLine guibg=#252525
