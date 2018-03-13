@@ -50,7 +50,10 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 Plug 'joshdick/onedark.vim'
-Plug 'junegunn/rainbow_parentheses.vim'
+" rainbow 
+"Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'kien/rainbow_parentheses.vim'
+
 Plug 'airblade/vim-gitgutter'
 Plug 'easymotion/vim-easymotion'
 
@@ -67,6 +70,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'jremmen/vim-ripgrep'
 
 "Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
+
+
 "Plug 'rust-lang/rust.vim'
 "Plug 'valloric/youcompleteme'
 "Plug 'Shougo/deoplete.nvim'
@@ -77,6 +83,10 @@ Plug 'jremmen/vim-ripgrep'
 
 " autoformat
 Plug 'sbdchd/neoformat'  
+
+" auto pair parants
+Plug 'jiangmiao/auto-pairs'
+
 call plug#end()
 
 "**********************************
@@ -117,6 +127,19 @@ let g:neoformat_basic_format_retab = 1
 " Enable trimmming of trailing whitespace
 let g:neoformat_basic_format_trim = 1
 
+
+"Rainbow parants settings
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+au Syntax * RainbowParenthesesLoadChevrons
+
+"linting 
+" js (npm install -g eslint)
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\}
 
 "**************************
 "* V I M  S E T T I N G S *
