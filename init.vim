@@ -118,7 +118,8 @@ map <C-n> :NERDTreeToggle<CR>
 "let g:deoplete#enable_at_startup = 1
 
 " neoformat 
-" js (npm i -g js-beautify)
+" js   (npm i -g js-beautify)
+" html (npm i -g htmlhint)
 
 " Enable alignment
 let g:neoformat_basic_format_align = 1
